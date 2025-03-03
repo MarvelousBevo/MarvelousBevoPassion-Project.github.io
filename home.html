@@ -7,7 +7,9 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom right, #1f1f1f, #3a3a3a);
+            background: linear-gradient(135deg, #6a11cb, #2575fc, #43e97b, #ff0844);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
             color: white;
             text-align: center;
             display: flex;
@@ -16,6 +18,11 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         .container {
             max-width: 600px;
