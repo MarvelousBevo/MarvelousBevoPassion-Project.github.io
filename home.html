@@ -54,10 +54,13 @@
             justify-content: center;
             transform-style: preserve-3d;
             font-family: "poppins";
+            transition: 1s;
         }
-        .card:hover {
+        div .card:hover{
             transform: perspective(300px) rotateY(calc(var(--tiltX) * 1)) rotateX(calc(var(--tiltY) * 1));
+            transition: 0.8s;
         }
+
     </style>
     <script>
   document.addEventListener("mousemove", (event) => {
@@ -76,9 +79,9 @@
 <body>
     <h1>Welcome to Arc-Inspired UI</h1>
     <div class="cards">
-        <div class="card">Page 1</div>
-        <div class="card">Page 2</div>
-        <div class="card">Page 3</div>
+        <div class="card"><h2>Page 1</h2></div>
+        <div class="card"><h2>Page 2</h2></div>
+        <div class="card"><h2>Page 3</h2></div>
     </div>
 </body>
 </html>
