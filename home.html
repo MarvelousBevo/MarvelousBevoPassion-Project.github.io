@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <title>Arc-Inspired UI Presentation</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Poppins";
             background:
                 linear-gradient(217deg, #3a009e, #3a009e00 70.71%),
                 linear-gradient(127deg, #0047ab, #0047ab00 70.71%),
@@ -39,9 +40,10 @@
         }
         .card {
             width: 20%;
-            height: 50%;
+            height: 40%;
             background: rgba(255, 255, 255, 0.1);
             padding: 20px;
+            margin: 7px;
             border-radius: 10px;
             cursor: pointer;
             transition: transform 0.3s;
@@ -51,20 +53,24 @@
             align-items: center;
             justify-content: center;
             transform-style: preserve-3d;
+            font-family: "poppins";
         }
         .card:hover {
-            transform: perspective(700px) rotateY(calc(var(--tiltX) * 2.5)) rotateX(calc(var(--tiltY) * 2.5));
+            transform: perspective(300px) rotateY(calc(var(--tiltX) * 1)) rotateX(calc(var(--tiltY) * 1));
         }
     </style>
     <script>
-        document.addEventListener("mousemove", (event) => {
-            let x = (event.clientX / window.innerWidth - 0.5) * 10;
-            let y = (event.clientY / window.innerHeight - 0.5) * 10;
-            document.querySelectorAll(".card").forEach(card => {
-                card.style.setProperty("--tiltX", `${x}deg`);
-                card.style.setProperty("--tiltY", `${-y}deg`);
-            });
-        });
+  document.addEventListener("mousemove", (event) => {
+    document.querySelectorAll(".card").forEach(card => {
+        let cardRect = card.getBoundingClientRect();
+        let x = ((event.clientX - (cardRect.left + cardRect.width / 2)) / cardRect.width) * 10;
+        let y = ((event.clientY - (cardRect.top + cardRect.height / 2)) / cardRect.height) * 10;
+        card.style.setProperty("--tiltX", `${x}deg`);
+        card.style.setProperty("--tiltY", `${-y}deg`);
+    });
+});
+
+
     </script>
 </head>
 <body>
