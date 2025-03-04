@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arc-Inspired Presentation</title>
+    <title>Arc-Inspired UI Presentation</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background:
-                linear-gradient(217deg, #6a11cb80, #6a11cb00 70.71%),
-                linear-gradient(127deg, #2575fc80, #2575fc00 70.71%),
-                linear-gradient(336deg, #43e97b80, #43e97b00 70.71%),
-                linear-gradient(45deg, #ff084480, #ff084400 70.71%);
-            background-size: cover;
+                linear-gradient(217deg, #3a009e, #3a009e00 70.71%),
+                linear-gradient(127deg, #0047ab, #0047ab00 70.71%),
+                linear-gradient(336deg, #007a33, #007a3300 70.71%),
+                linear-gradient(45deg, #b30000, #b3000000 70.71%);
+            background-size: 400% 400%;
+            animation: gradientBG 120s ease infinite;
             color: white;
             text-align: center;
             display: flex;
@@ -21,6 +22,11 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         .container {
             max-width: 600px;
@@ -49,7 +55,7 @@
     </style>
 </head>
 <body>
-    <h1>Welcome to Arc-Inspired Presentation</h1>
+    <h1>Welcome to Arc-Inspired UI</h1>
     <div class="container">
         <div class="cards">
             <div class="card">Page 1</div>
