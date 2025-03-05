@@ -1,250 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <title>Arc-Inspired UI Presentation</title>
     <style>
+      body {
+        background: linear-gradient(314deg, #008657, #1620ce, #8b00ba);
+        background-size: 300% 300%;
+        animation: gradient-animation 10s ease infinite;
+        color: white;
+        text-align: center;
+        margin: 0;
+        scroll-behavior: smooth;
+        font-family: "poppins";
+      }
 
-        body {
-          background: linear-gradient(314deg,#008657,#1620ce,#8b00ba);
-          background-size: 200% 200%;
-          animation: gradient-animation 10s ease infinite;
-          color: white;
-          text-align: center;
-          margin: 0;
-          scroll-behavior: smooth;
-          font-family: "poppins";
+      @keyframes gradient-animation {
+        0% {
+          background-position: 0% 50%;
         }
 
-        @keyframes gradient-animation {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
+        50% {
+          background-position: 100% 50%;
         }
-        /* Fullscreen Title Section */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Fullscreen Title Section */
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      h1 {
+        font-size: 3em;
+        margin: 10px;
+        text-shadow: 0 0 11px rgba(255, 255, 255, 0.3);
+      }
+
+      h2 {
+        font-size: 2em;
+        margin: 10px;
+        text-shadow: 0 0 11px rgba(255, 255, 255, 0.3);
+      }
+
+      h3 {
+        font-size: 1em;
+        margin: 0px;
+        text-shadow: 0 0 11px rgba(255, 255, 255, 0.3);
+      }
+
+      p {
+        font-size: 0.65em;
+        text-shadow:
+          0 0 10px rgba(255, 255, 255, 0.1);
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: table;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        text-shadow:
+          0 0 1px rgba(255, 255, 255, 0.6),
+          0 0 6px rgba(255, 255, 255, 0.5);
+        color: #d1d1d1;
+      }
+
+      /* Cards Section */
+      .cards-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .cards {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 60px;
+        width: 100%;
+      }
+
+      .card {
+        width: 18%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.2s ease-out;
+        text-align: center;
+        font-size: 2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform-style: preserve-3d;
+        font-family: "Poppins";
+        box-shadow:
+          0 0 6px rgba(255, 255, 255, 0.09),
+          0 0 11px rgba(255, 255, 255, 0.07);
+        position: relative;
+        transition: box-shadow 0.8s;
+        max-width: 280px;
+        min-width: 180px;
+        max-height: 500px;
+        min-height: 280px;
+      }
+
+      .card:hover {
+        box-shadow:
+          0 0 20px rgba(255, 255, 255, 0.6),
+          0 0 40px rgba(255, 255, 255, 0.4),
+          0 0 60px rgba(255, 255, 255, 0.2);
+      }
+
+      .card h3,
+      p {
+        transform: translateZ(20px);
+        backface-visibility: visible;
+        transition: transform 0.2s ease-out;
+        display: flex;
+        flex-direction: column;
+        padding: auto;
+      }
+
+      /* Scroll Indicator */
+      .scroll-down {
+        position: absolute;
+        bottom: 30px;
+        left: auto;
+        transform: translateX(-50%);
+        font-size: 1em;
+        color: #fff;
+        opacity: 0.8;
+        animation: fadeBounce 2s infinite;
+      }
+
+      @keyframes fadeBounce {
+
+        0%,
+        100% {
+          transform: translateY(0);
+          opacity: 0.8;
+        }
+
+        50% {
+          transform: translateY(10px);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 800px) {
+        .cards {
+          flex-direction: column;
+          align-items: center;
+          transform: translateY(20%);
         }
 
         h1 {
-            font-size: 3em;
-            margin: 10px;
-            text-shadow: 0 0 11px rgba(255, 255, 255, 0.3);
+          font-size: 2em;
         }
+
         h2 {
-            font-size: 2em;
-            margin: 10px;
-            text-shadow: 0 0 11px rgba(255, 255, 255, 0.3);
+          font-size: 1.5em;
         }
-        h3 {
-            font-size: 1em;
-            margin: 0px;
-            text-shadow: 0 0 11px rgba(255, 255, 255, 0.3);
-                          
-        }
+
+        h3,
         p {
-            font-size: 0.65em;
-            text-shadow: 
-              0 0 10px rgba(255, 255, 255, 0.1);
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: table;
-        }
-        
-        h1, h2, h3, p {
-            text-shadow:
-              0 0 1px rgba(255, 255, 255, 0.6),
-              0 0 6px rgba(255, 255, 255, 0.5);
-            color: #d1d1d1;
-        }
-        
-        
-        
-        
-        
-        /* Cards Section */
-        .cards-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        .cards {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            gap: 60px;
-            width: 100%;
+          font-size: 1em;
         }
 
         .card {
-            width: 18%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.2s ease-out;
-            text-align: center;
-            font-size: 2em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transform-style: preserve-3d;
-            font-family: "Poppins";
-            box-shadow:
-                0 0 6px rgba(255, 255, 255, 0.09),
-                0 0 11px rgba(255, 255, 255, 0.07);
-            position: relative;
-            transition: box-shadow 0.5s;
-            max-width: 280px;
-            min-width: 180px;
-            max-height: 500px;
-            min-height: 280px;
+          font-size: 1em;
+          padding: 10px;
+          transform-origin: center;
         }
-        
+
         .card:hover {
-            box-shadow:
-              0 0 20px rgba(255, 255, 255, 0.6),
-              0 0 40px rgba(255, 255, 255, 0.4);
+          box-shadow:
+            0 0 20px rgba(255, 255, 255, 0.6),
+            0 0 40px rgba(255, 255, 255, 0.4);
+          transform-origin: center;
         }
-
-        .card h3, p {
-            transform: translateZ(20px);
-            backface-visibility: visible;
-            transition: transform 0.2s ease-out;
-            display: flex;
-            flex-direction: column;
-            padding: auto;
-        }
-
-        /* Scroll Indicator */
-        .scroll-down {
-            position: absolute;
-            bottom: 30px;
-            left: auto;
-            transform: translateX(-50%);
-            font-size: 1em;
-            color: #fff;
-            opacity: 0.8;
-            animation: fadeBounce 2s infinite;
-        }
-
-        @keyframes fadeBounce {
-            0%, 100% { transform: translateY(0); opacity: 0.8; }
-            50% { transform: translateY(10px); opacity: 1; }
-        }
-        @media (max-width: 800px) {
-          .cards {
-              flex-direction: column;
-              align-items: center;
-              transform: translateY(20%);
-          }
-      
-          h1, h2 {
-              font-size: 1.5em;
-          }
-      
-          h3, p {
-              font-size: 1em;
-          }
-      
-          .card {
-              font-size: 1em;
-              padding: 10px;
-              transform-origin: center;
-          }
-      
-          .card:hover {
-              box-shadow:
-                  0 0 20px rgba(255, 255, 255, 0.6),
-                  0 0 40px rgba(255, 255, 255, 0.4);
-              transform-origin: center;
-          }
       }
     </style>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelectorAll(".card").forEach(card => {
-                card.addEventListener("mousemove", (event) => {
-                    let cardRect = card.getBoundingClientRect();
-                    let centerX = cardRect.left + cardRect.width / 2;
-                    let centerY = cardRect.top + cardRect.height / 2;
-
-                    let x = ((event.clientX - centerX) / cardRect.width) * 10; 
-                    let y = ((event.clientY - centerY) / cardRect.height) * 10;
-
-                    card.style.transform = `perspective(600px) rotateY(${x}deg) rotateX(${-y}deg)`;
-                });
-
-                card.addEventListener("mouseleave", () => {
-                    card.style.transform = "perspective(600px) rotateY(0deg) rotateX(0deg)";
-                });
-            });
-
-            // Smooth scrolling when clicking on scroll-down arrow
-            document.querySelector(".scroll-down").addEventListener("click", () => {
-                window.scrollTo({
-                    top: window.innerHeight,
-                    behavior: "smooth"
-                });
-            });
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".card").forEach(card => {
+          card.addEventListener("mousemove", (event) => {
+            let cardRect = card.getBoundingClientRect();
+            let centerX = cardRect.left + cardRect.width / 2;
+            let centerY = cardRect.top + cardRect.height / 2;
+            let x = ((event.clientX - centerX) / cardRect.width) * 10;
+            let y = ((event.clientY - centerY) / cardRect.height) * 10;
+            card.style.transform = `perspective(600px) rotateY(${x}deg) rotateX(${-y}deg)`;
+          });
+          card.addEventListener("mouseleave", () => {
+            card.style.transform = "perspective(600px) rotateY(0deg) rotateX(0deg)";
+          });
         });
+        // Smooth scrolling when clicking on scroll-down arrow
+        document.querySelector(".scroll-down").addEventListener("click", () => {
+          window.scrollTo({
+            top: window.innerHeight,
+            behavior: "smooth"
+          });
+        });
+      });
     </script>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- Fullscreen Title Section -->
     <div class="hero">
-        <h1>Welcome</h1>
-        <h2>to an Arc-Inspired Presentation</h2>
-        <div class="scroll-down">↓ Scroll Down ↓</div>
+      <h1>Welcome</h1>
+      <h2>to an Arc-Inspired Presentation</h2>
+      <div class="scroll-down">↓ Scroll Down ↓</div>
     </div>
-
     <!-- Cards Section -->
     <div class="cards-container">
-        <div class="cards">
-            <div class="card">
-                <ul>
-                    <li><h3>Emergence</h3></li>
-                    <li><p>Beginning of a Life-Changing Decision</p></li>
-                </ul>
-            </div>
-            
-            <div class="card">
-                <ul>
-                    <li><h3>Brute Force</h3></li>
-                    <li><p>Slow but Steady Transformation</p></li>
-                </ul>
-            </div>
-            
-            <div class="card">
-                <ul>
-                    <li><h3>Emergence</h3></li>
-                    <li><p>Beginning of a Life-Changing Decision</p></li>
-                </ul>
-            </div>
+      <div class="cards">
+        <div class="card">
+          <ul>
+            <li>
+              <h3>Emergence</h3>
+            </li>
+            <li>
+              <p>Beginning of a Life-Changing Decision</p>
+            </li>
+          </ul>
         </div>
+        <div class="card">
+          <ul>
+            <li>
+              <h3>Brute Force</h3>
+            </li>
+            <li>
+              <p>Slow but Steady Transformation</p>
+            </li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li>
+              <h3>Emergence</h3>
+            </li>
+            <li>
+              <p>Beginning of a Life-Changing Decision</p>
+            </li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li>
+              <h3>Emergence</h3>
+            </li>
+            <li>
+              <p>Beginning of a Life-Changing Decision</p>
+            </li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li>
+              <h3>Emergence</h3>
+            </li>
+            <li>
+              <p>Beginning of a Life-Changing Decision</p>
+            </li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li>
+              <h3>Emergence</h3>
+            </li>
+            <li>
+              <p>Beginning of a Life-Changing Decision</p>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-
-</body>
+  </body>
 </html>
