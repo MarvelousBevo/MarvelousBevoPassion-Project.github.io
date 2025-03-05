@@ -46,38 +46,76 @@
             margin: 7px;
             border-radius: 10px;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: transform 0.2s ease-out;
             text-align: center;
             font-size: 2em;
             display: flex;
             align-items: center;
             justify-content: center;
             transform-style: preserve-3d;
-            font-family: "poppins";
-            transition: 1s;
-        }
+            font-family: "Poppins";
+}
+
+        .card h2 {
+            transform: inherit; /* Ensures text follows the tilt */
+            backface-visibility: hidden;
+}
         div .card:hover{
-            transform: perspective(300px) rotateY(calc(var(--tiltX) * 1)) rotateX(calc(var(--tiltY) * 1));
-            transition: 0.8s;
+            transform: perspective(200px) rotateY(calc(var(--tiltX) * 5)) rotateX(calc(var(--tiltY) * 5));
+            transition: 0.3s;
+        }
+        h1 {
+            text-shadow:
+                0 0 1px rgba(255, 255, 255, 0.7),
+                0 0 6px rgba(255, 255, 255, 0.5),
+                0 0 11px rgba(255, 255, 255, 0.3);
+            color: #d1d1d1;
+            font-size: 3em;
+            margin: 10px;
+        }
+        h3{
+            text-shadow:
+                0 0 1px rgba(255, 255, 255, 0.7),
+                0 0 6px rgba(255, 255, 255, 0.5),
+                0 0 11px rgba(255, 255, 255, 0.3);
+            color: #d1d1d1;
+            font-size: 1.5em;
+            margin: 0px;
+        }
+        h2 {
+            text-shadow:
+                0 0 1px rgba(255, 255, 255, 0.7),
+                0 0 6px rgba(255, 255, 255, 0.5),
+                0 0 11px rgba(255, 255, 255, 0.3);
+            color: #d1d1d1;
+            font-size: 0.75em;
         }
 
     </style>
     <script>
-  document.addEventListener("mousemove", (event) => {
-    document.querySelectorAll(".card").forEach(card => {
-        let cardRect = card.getBoundingClientRect();
-        let x = ((event.clientX - (cardRect.left + cardRect.width / 2)) / cardRect.width) * 10;
-        let y = ((event.clientY - (cardRect.top + cardRect.height / 2)) / cardRect.height) * 10;
-        card.style.setProperty("--tiltX", `${x}deg`);
-        card.style.setProperty("--tiltY", `${-y}deg`);
-    });
-});
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".card").forEach(card => {
+                card.addEventListener("mousemove", (event) => {
+                    let cardRect = card.getBoundingClientRect();
+                    let centerX = cardRect.left + cardRect.width / 2;
+                    let centerY = cardRect.top + cardRect.height / 2;
 
+                    let x = ((event.clientX - centerX) / cardRect.width) * 20; 
+                    let y = ((event.clientY - centerY) / cardRect.height) * 20;
 
+                    card.style.transform = `perspective(600px) rotateY(${x}deg) rotateX(${-y}deg)`;
+                });
+
+                card.addEventListener("mouseleave", () => {
+                    card.style.transform = "perspective(600px) rotateY(0deg) rotateX(0deg)";
+                });
+            });
+        });
     </script>
 </head>
 <body>
-    <h1>Welcome to Arc-Inspired UI</h1>
+    <h1>Welcome</h1>
+    <h3>to an Arc-Inspired Passion Presentation</h3>
     <div class="cards">
         <div class="card"><h2>Page 1</h2></div>
         <div class="card"><h2>Page 2</h2></div>
