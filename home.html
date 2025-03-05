@@ -9,7 +9,7 @@
 
         body {
           background: linear-gradient(314deg,#008657,#1620ce,#8b00ba);
-          background-size: 180% 180%;
+          background-size: 200% 200%;
           animation: gradient-animation 10s ease infinite;
           color: white;
           text-align: center;
@@ -92,7 +92,7 @@
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            gap: 40px;
+            gap: 60px;
             width: 100%;
         }
 
@@ -115,12 +115,26 @@
                 0 0 6px rgba(255, 255, 255, 0.09),
                 0 0 11px rgba(255, 255, 255, 0.07);
             position: relative;
+            transition: box-shadow 0.5s;
+            max-width: 280px;
+            min-width: 180px;
+            max-height: 500px;
+            min-height: 280px;
+        }
+        
+        .card:hover {
+            box-shadow:
+              0 0 20px rgba(255, 255, 255, 0.6),
+              0 0 40px rgba(255, 255, 255, 0.4);
         }
 
-        .card h2 {
-            transform: translateZ(10px);
+        .card h3, p {
+            transform: translateZ(20px);
             backface-visibility: visible;
             transition: transform 0.2s ease-out;
+            display: flex;
+            flex-direction: column;
+            padding: auto;
         }
 
         /* Scroll Indicator */
@@ -139,6 +153,34 @@
             0%, 100% { transform: translateY(0); opacity: 0.8; }
             50% { transform: translateY(10px); opacity: 1; }
         }
+        @media (max-width: 800px) {
+          .cards {
+              flex-direction: column;
+              align-items: center;
+              transform: translateY(20%);
+          }
+      
+          h1, h2 {
+              font-size: 1.5em;
+          }
+      
+          h3, p {
+              font-size: 1em;
+          }
+      
+          .card {
+              font-size: 1em;
+              padding: 10px;
+              transform-origin: center;
+          }
+      
+          .card:hover {
+              box-shadow:
+                  0 0 20px rgba(255, 255, 255, 0.6),
+                  0 0 40px rgba(255, 255, 255, 0.4);
+              transform-origin: center;
+          }
+      }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
