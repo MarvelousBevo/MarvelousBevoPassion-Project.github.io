@@ -6,44 +6,101 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <title>Arc-Inspired UI Presentation</title>
     <style>
+
         body {
-            font-family: "Poppins";
-            background:
-                linear-gradient(217deg, #3a009e, #3a009e00 70.71%),
-                linear-gradient(127deg, #0047ab, #0047ab00 70.71%),
-                linear-gradient(336deg, #007a33, #007a3300 70.71%),
-                linear-gradient(45deg, #b30000, #b3000000 70.71%);
-            background-size: 200% 200%;
-            animation: gradientBG 60s ease infinite;
-            color: white;
-            text-align: center;
+          background: linear-gradient(314deg,#008657,#1620ce,#8b00ba);
+          background-size: 180% 180%;
+          animation: gradient-animation 10s ease infinite;
+          color: white;
+          text-align: center;
+          margin: 0;
+          scroll-behavior: smooth;
+          font-family: "poppins";
+        }
+
+        @keyframes gradient-animation {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+        /* Fullscreen Title Section */
+        .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 10px;
+            text-shadow: 0 0 11px rgba(255, 255, 255, 0.3);
+        }
+        h2 {
+            font-size: 2em;
+            margin: 10px;
+            text-shadow: 0 0 11px rgba(255, 255, 255, 0.3);
+        }
+        h3 {
+            font-size: 1em;
+            margin: 0px;
+            text-shadow: 0 0 11px rgba(255, 255, 255, 0.3);
+                          
+        }
+        p {
+            font-size: 0.65em;
+            text-shadow: 
+              0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
             margin: 0;
+            display: table;
         }
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        
+        h1, h2, h3, p {
+            text-shadow:
+              0 0 1px rgba(255, 255, 255, 0.6),
+              0 0 6px rgba(255, 255, 255, 0.5);
+            color: #d1d1d1;
         }
+        
+        
+        
+        
+        
+        /* Cards Section */
+        .cards-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
         .cards {
             display: flex;
             flex-direction: row;
             align-items: center;
-            width: 100%;
-            height: 100%;
             justify-content: center;
-            gap: 20px;
+            gap: 40px;
+            width: 100%;
         }
+
         .card {
-            width: 20%;
-            height: 40%;
+            width: 18%;
+            height: 100%;
             background: rgba(255, 255, 255, 0.1);
             padding: 20px;
-            margin: 7px;
             border-radius: 10px;
             cursor: pointer;
             transition: transform 0.2s ease-out;
@@ -54,43 +111,34 @@
             justify-content: center;
             transform-style: preserve-3d;
             font-family: "Poppins";
-}
+            box-shadow:
+                0 0 6px rgba(255, 255, 255, 0.09),
+                0 0 11px rgba(255, 255, 255, 0.07);
+            position: relative;
+        }
 
         .card h2 {
-            transform: inherit; /* Ensures text follows the tilt */
-            backface-visibility: hidden;
-}
-        div .card:hover{
-            transform: perspective(200px) rotateY(calc(var(--tiltX) * 5)) rotateX(calc(var(--tiltY) * 5));
-            transition: 0.3s;
-        }
-        h1 {
-            text-shadow:
-                0 0 1px rgba(255, 255, 255, 0.7),
-                0 0 6px rgba(255, 255, 255, 0.5),
-                0 0 11px rgba(255, 255, 255, 0.3);
-            color: #d1d1d1;
-            font-size: 3em;
-            margin: 10px;
-        }
-        h3{
-            text-shadow:
-                0 0 1px rgba(255, 255, 255, 0.7),
-                0 0 6px rgba(255, 255, 255, 0.5),
-                0 0 11px rgba(255, 255, 255, 0.3);
-            color: #d1d1d1;
-            font-size: 1.5em;
-            margin: 0px;
-        }
-        h2 {
-            text-shadow:
-                0 0 1px rgba(255, 255, 255, 0.7),
-                0 0 6px rgba(255, 255, 255, 0.5),
-                0 0 11px rgba(255, 255, 255, 0.3);
-            color: #d1d1d1;
-            font-size: 0.75em;
+            transform: translateZ(10px);
+            backface-visibility: visible;
+            transition: transform 0.2s ease-out;
         }
 
+        /* Scroll Indicator */
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: auto;
+            transform: translateX(-50%);
+            font-size: 1em;
+            color: #fff;
+            opacity: 0.8;
+            animation: fadeBounce 2s infinite;
+        }
+
+        @keyframes fadeBounce {
+            0%, 100% { transform: translateY(0); opacity: 0.8; }
+            50% { transform: translateY(10px); opacity: 1; }
+        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -100,8 +148,8 @@
                     let centerX = cardRect.left + cardRect.width / 2;
                     let centerY = cardRect.top + cardRect.height / 2;
 
-                    let x = ((event.clientX - centerX) / cardRect.width) * 20; 
-                    let y = ((event.clientY - centerY) / cardRect.height) * 20;
+                    let x = ((event.clientX - centerX) / cardRect.width) * 10; 
+                    let y = ((event.clientY - centerY) / cardRect.height) * 10;
 
                     card.style.transform = `perspective(600px) rotateY(${x}deg) rotateX(${-y}deg)`;
                 });
@@ -110,16 +158,51 @@
                     card.style.transform = "perspective(600px) rotateY(0deg) rotateX(0deg)";
                 });
             });
+
+            // Smooth scrolling when clicking on scroll-down arrow
+            document.querySelector(".scroll-down").addEventListener("click", () => {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth"
+                });
+            });
         });
     </script>
 </head>
 <body>
-    <h1>Welcome</h1>
-    <h3>to an Arc-Inspired Passion Presentation</h3>
-    <div class="cards">
-        <div class="card"><h2>Page 1</h2></div>
-        <div class="card"><h2>Page 2</h2></div>
-        <div class="card"><h2>Page 3</h2></div>
+
+    <!-- Fullscreen Title Section -->
+    <div class="hero">
+        <h1>Welcome</h1>
+        <h2>to an Arc-Inspired Presentation</h2>
+        <div class="scroll-down">↓ Scroll Down ↓</div>
     </div>
+
+    <!-- Cards Section -->
+    <div class="cards-container">
+        <div class="cards">
+            <div class="card">
+                <ul>
+                    <li><h3>Emergence</h3></li>
+                    <li><p>Beginning of a Life-Changing Decision</p></li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <ul>
+                    <li><h3>Brute Force</h3></li>
+                    <li><p>Slow but Steady Transformation</p></li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <ul>
+                    <li><h3>Emergence</h3></li>
+                    <li><p>Beginning of a Life-Changing Decision</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
