@@ -7,15 +7,16 @@
     <title>Arc-Inspired UI Presentation</title>
     <style>
       body {
-        background: linear-gradient(314deg, #008657, #1620ce, #8b00ba);
+        background: linear-gradient(300deg, #0D1B2A, #1E1F36, #30055b, #2E3B2F);
         background-size: 300% 300%;
-        animation: gradient-animation 10s ease infinite;
+        animation: gradient-animation 20s ease infinite;
         color: white;
         text-align: center;
         margin: 0;
         scroll-behavior: smooth;
         font-family: "poppins";
       }
+
       div {
         justify-items: center;
       }
@@ -208,7 +209,16 @@
             0 0 40px rgba(255, 255, 255, 0.4);
           transform-origin: center;
         }
+
+        .hyperspan {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+        }
       }
+
       @media (max-width: 950px) and (min-width: 700px) {
         .cards {
           flex-direction: column;
@@ -248,27 +258,48 @@
     </style>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll(".card").forEach(card => {
-          card.addEventListener("mousemove", (event) => {
+    document.querySelectorAll(".card").forEach(card => {
+        // 3D hover effect
+        card.addEventListener("mousemove", (event) => {
             let cardRect = card.getBoundingClientRect();
             let centerX = cardRect.left + cardRect.width / 2;
             let centerY = cardRect.top + cardRect.height / 2;
             let x = ((event.clientX - centerX) / cardRect.width) * 10;
             let y = ((event.clientY - centerY) / cardRect.height) * 10;
             card.style.transform = `perspective(600px) rotateY(${x}deg) rotateX(${-y}deg)`;
-          });
-          card.addEventListener("mouseleave", () => {
-            card.style.transform = "perspective(600px) rotateY(0deg) rotateX(0deg)";
-          });
         });
-        // Smooth scrolling when clicking on scroll-down arrow
-        document.querySelector(".scroll-down").addEventListener("click", () => {
-          window.scrollTo({
+
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "perspective(600px) rotateY(0deg) rotateX(0deg)";
+        });
+
+        // Click event to navigate to respective pages
+        card.addEventListener("click", () => {
+            let title = card.querySelector("h3").innerText;
+            let pageLinks = {
+                "Emergence": "emergence.html",
+                "Brute Force": "bruteforce.html",
+                "Golden Hour": "goldenHour.html",
+                "Dreams": "dreams.html",
+                "Special Thanks": "credits.html",
+                "About ARC": "arc.html"
+                // Add more mappings as needed
+            };
+            if (pageLinks[title]) {
+                window.location.href = pageLinks[title];
+            }
+        });
+    });
+
+    // Smooth scrolling when clicking on scroll-down arrow
+    document.querySelector(".scroll-down").addEventListener("click", () => {
+        window.scrollTo({
             top: window.innerHeight,
             behavior: "smooth"
-          });
         });
-      });
+    });
+});
+
     </script>
   </head>
   <body>
@@ -282,12 +313,15 @@
     <div class="cards-container">
       <div class="cards">
         <div class="card">
+          <span id="hyperspan">
+            <a href="Music.html"></a>
+          </span>
           <ul>
             <li>
               <h3>Emergence</h3>
             </li>
             <li>
-              <p>Beginning of a Life-Changing Decision</p>
+              <p>Life-Changing First Step</p>
             </li>
           </ul>
         </div>
@@ -304,40 +338,40 @@
         <div class="card">
           <ul>
             <li>
-              <h3>Emergence</h3>
+              <h3>Golden Hour</h3></h3>
             </li>
             <li>
-              <p>Beginning of a Life-Changing Decision</p>
-            </li>
-          </ul>
-        </div>
-        <div class="card">
-          <ul>
-            <li>
-              <h3>Emergence</h3>
-            </li>
-            <li>
-              <p>Beginning of a Life-Changing Decision</p>
+              <p>Beginning of a Profession</p>
             </li>
           </ul>
         </div>
         <div class="card">
           <ul>
             <li>
-              <h3>Emergence</h3>
+              <h3>Dreams</h3>
             </li>
             <li>
-              <p>Beginning of a Life-Changing Decision</p>
+              <p>Reaching for the Stars</p>
             </li>
           </ul>
         </div>
         <div class="card">
           <ul>
             <li>
-              <h3>Emergence</h3>
+              <h3>Special Thanks</h3>
             </li>
             <li>
-              <p>Beginning of a Life-Changing Decision</p>
+              <p>Those Who Have Helped Me on this Journey</p>
+            </li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li>
+              <h3>About ARC</h3>
+            </li>
+            <li>
+              <p>The perfect UI</p>
             </li>
           </ul>
         </div>
