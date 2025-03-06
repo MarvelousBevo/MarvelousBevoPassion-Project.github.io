@@ -16,8 +16,8 @@ web-application
 │   ├── credits.html          # Content for the "Special Thanks" page
 │   ├── arc.html              # Content for the "About ARC" page
 │   ├── home.html             # Main entry point of the application
-│   ├── script.js             # JavaScript for interactivity
-│   └── styles.css            # CSS styles for the application
+│   ├── script.js             # JavaScript for interactivity(optional: all internal jvs)
+│   └── styles.css            # CSS styles for the application(optional: all internal css)
 ├── package.json              # npm configuration file
 └── README.md                 # Project documentation
 ```
