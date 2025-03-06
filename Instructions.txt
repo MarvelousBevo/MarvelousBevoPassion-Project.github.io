@@ -1,0 +1,8 @@
+In order to present this project:
+	1. Download all files in repository, file names and structure are in README.md
+	2. Unzip file
+	3. Find file named: "home.html"
+	4. Double Click or Right click and open in Google Chrome
+
+// If an object glows and tilts towards your cursor, it is a button.
+// DO NOT EDIT ANY FILES.
