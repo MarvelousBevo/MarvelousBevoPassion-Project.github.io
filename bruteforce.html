@@ -3,42 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Brute Force</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script src="script.js" defer></script>
+    <title>Brute Force - Arc-Inspired Presentation</title>
+    <style>
+      body {
+        background-image: url(data:image/png;base64,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);
+        background: linear-gradient(300deg, rgba(3,0,50,1) 0%, rgba(32,9,121,1) 72%, rgba(162,64,0,1) 100%);
+        background-size: 300% 300%;
+        animation: gradient-animation 20s ease infinite;
+        color: white;
+        text-align: center;
+        margin: 0;
+        scroll-behavior: smooth;
+        font-family: "poppins";
+      }
+      .hero, .sidekick {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: auto;
+        display: table;
+      }
+      li {
+        display: table-row;
+        padding: 10px;
+        text-align: center;
+      }
+      h1 {
+        font-size: 2em;
+        margin: 10px;
+        text-shadow: 0 0 11px rgba(255, 255, 255, 0.3);
+      }
+
+      h2 {
+        font-size: 1.5em;
+        margin: 10px;
+        text-shadow: 0 0 11px rgba(255, 255, 255, 0.3);
+        transform: translateX(-10px);
+      }
+
+      h3 {
+        font-size: 1em;
+        margin: 0px;
+        text-shadow: 0 0 11px rgba(255, 255, 255, 0.3);
+      }
+
+      p {
+        font-size: 1em;
+        text-shadow:
+          0 0 10px rgba(255, 255, 255, 0.1);
+      }
+      a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.2em;
+        padding: 10px;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 10px;
+        transition: background 0.3s;
+      }
+      .cards{
+        display: flex;
+        justify-content: center;
+      }
+      .slideshow-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 50px auto;
+        width: 80%;
+        max-width: 1000px;
+      }
+
+      .text-container {
+        flex: 1;
+        padding: 20px;
+        text-align: left;
+      }
+
+      .text-container h2 {
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+
+      .text-container p {
+        font-size: 1.2em;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      }
+
+      .slideshow {
+        flex: 1;
+        position: relative;
+        max-width: 400px;
+        height: 300px;
+      }
+
+      .slide {
+        display: none;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+
+      .active {
+        display: block;
+      }
+
+      .footer {
+        margin-top: 50px;
+      }
+      .card {
+        width: 18%;
+        height: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.2s ease-out;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform-style: preserve-3d;
+        font-family: "Poppins";
+        box-shadow:
+          0 0 6px rgba(255, 255, 255, 0.09),
+          0 0 11px rgba(255, 255, 255, 0.07);
+        position: relative;
+        transition: box-shadow 0.8s;
+        max-width: 200px;
+        min-width: 100px;
+        max-height: 200px;
+        min-height: 100px;
+      }
+      .card:hover {
+          box-shadow:
+            0 0 20px rgba(255, 255, 255, 0.6),
+            0 0 40px rgba(255, 255, 255, 0.4);
+          transform-origin: center;
+        }
+        .scroll-down {
+        position: absolute;
+        bottom: 30px;
+        left: auto;
+        transform: translateX(-50%);
+        font-size: 1em;
+        color: #fff;
+        opacity: 0.8;
+        animation: fadeBounce 2s infinite;
+
+      }
+      .scroll-down-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+  }
+      @keyframes fadeBounce {
+
+        0%,
+        100% {
+        transform: translateY(0);
+        opacity: 0.8;
+        }
+
+        50% {
+        transform: translateY(10px);
+        opacity: 1;
+        }
+      }
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          document.querySelectorAll(".card").forEach(card => {
+            // 3D hover effect
+            card.addEventListener("mousemove", (event) => {
+              let cardRect = card.getBoundingClientRect();
+              let centerX = cardRect.left + cardRect.width / 2;
+              let centerY = cardRect.top + cardRect.height / 2;
+              let x = ((event.clientX - centerX) / cardRect.width) * 5;
+              let y = ((event.clientY - centerY) / cardRect.height) * 5;
+              card.style.transform = `perspective(600px) rotateY(${x}deg) rotateX(${-y}deg)`;
+            });
+            card.addEventListener("mouseleave", () => {
+              card.style.transform = "perspective(600px) rotateY(0deg) rotateX(0deg)";
+            });
+            // Click event to navigate to respective pages
+            card.addEventListener("click", () => {
+              let title = card.querySelector("h3").innerText;
+              let pageLinks = {
+                "Emergence": "emergence.html",
+                "Brute Force": "bruteforce.html",
+                "Golden Hour": "goldenHour.html",
+                "Dreams": "dreams.html",
+                "Special Thanks": "credits.html",
+                "About ARC": "arc.html"
+                // Add more mappings as needed
+              };
+              if (pageLinks[title]) {
+                window.location.href = pageLinks[title];
+              }
+            });
+          });
+          // Smooth scrolling when clicking on scroll-down arrow
+          document.querySelector(".scroll-down").addEventListener("click", () => {
+            window.scrollTo({
+              top: window.innerHeight,
+              behavior: "smooth"
+            });
+          });
+        });
+      </script>
 </head>
 <body>
-    <header>
+    <header class="hero">
         <h1>Brute Force</h1>
-        <p>Slow but Steady Transformation</p>
+        <h3>Solid Repetative Practice</h3>
     </header>
-    <main>
-        <section>
-            <h2>Overview</h2>
-            <p>The journey of transformation is often slow and requires persistence. In this section, we explore the concept of brute force in achieving goals and overcoming challenges.</p>
+    <div class="scroll-down-container"><div class="scroll-down">↓ Scroll Down ↓</div></div>
+    <main class="sidekick">
+        <section class="slideshow-container">
+            <div class="text-container">
+                <h2>Overview</h2>
+                <p>Around the age of 9, Piano was like school; it was hard, long practice, every day. I didn't understand why my parents chose for me to play piano. I was young at the time, so 30 minutes of practice feels like 2 hours now. I didn't understand the importance of practice. I didn't understand the importance of repetition. I didn't understand the importance of brute force.</p>
+
+                </p>
+            </div>
+            <div class="slideshow">
+                <img class="slide active" src="https://source.unsplash.com/400x300/?nature" alt="Slide 1">
+                <img class="slide" src="https://source.unsplash.com/400x300/?future" alt="Slide 2">
+                <img class="slide" src="https://source.unsplash.com/400x300/?innovation" alt="Slide 3">
+            </div>
         </section>
-        <section>
-            <h2>Key Concepts</h2>
-            <ul>
-                <li>Consistency is key to success.</li>
-                <li>Every small step contributes to the larger goal.</li>
-                <li>Learning from failures is part of the process.</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Conclusion</h2>
-            <p>Brute force may not be the most glamorous approach, but it is often the most effective. Embrace the journey and keep pushing forward!</p>
-        </section>
+        <div class="cards"><a href="home.html" class="card">Home</a></div>
     </main>
-    <footer>
-        <p>&copy; 2023 Your Name. All rights reserved.</p>
-        <nav>
-            <a href="home.html">Home</a>
-            <a href="emergence.html">Emergence</a>
-            <a href="goldenHour.html">Golden Hour</a>
-            <a href="dreams.html">Dreams</a>
-            <a href="credits.html">Special Thanks</a>
-            <a href="arc.html">About ARC</a>
-        </nav>
+
+    <footer class="footer">
+        <p>&copy; March 20, 2025 Liem R. Vora. All rights reserved.</p>
+    <script>
+        let slides = document.querySelectorAll('.slide');
+        let index = 0;
+
+        function showSlide() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
+        }
+
+        setInterval(showSlide, 4000); // Change slide every 3 seconds
+    </script>
+
     </footer>
 </body>
 </html>
