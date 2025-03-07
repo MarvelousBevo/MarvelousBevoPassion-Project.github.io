@@ -3,16 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <title>Dreams - Arc-Inspired UI Presentation</title>
 </head>
+<style>
+body {
+    background: radial-gradient(circle at 20% 30%, #647a9e 15%, transparent 60%),
+                radial-gradient(circle at 80% 20%, #2a425f 20%, transparent 65%),
+                radial-gradient(circle at 40% 70%, #bf7aa9 25%, transparent 60%),
+                radial-gradient(circle at 85% 85%, #87adaf 30%, transparent 70%),
+                radial-gradient(circle at 10% 90%, #9c7ba9 20%, transparent 70%),
+                radial-gradient(circle at 90% 10%, #78a8aa 15%, transparent 65%),
+                radial-gradient(circle at 30% 50%, #41485f 25%, transparent 60%),
+                radial-gradient(circle at 60% 80%, #423762 30%, transparent 70%),
+                radial-gradient(circle at 25% 75%, #95a8c3 20%, transparent 70%),
+                radial-gradient(circle at 70% 25%, #387483 15%, transparent 65%);
+    background-blend-mode: soft-light;
+    background-size: 100% 250%;
+    height: 100vh;
+    margin: 0;
+    animation: gradient-animation 20s ease infinite;
+    color: white;
+    text-align: center;
+    margin: 0;
+    scroll-behavior: smooth;
+    font-family: "Poppins";
+}
+.hero, .sidekick {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 30px;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: auto;
+        display: table;
+      }
+      li {
+        display: table-row;
+        padding: 10px;
+        text-align: center;
+      }
+      h1 {
+        font-size: 2em;
+        margin: 10px;
+      }
+
+      h2 {
+        font-size: 1.5em;
+        margin: 10px;
+        transform: translateX(-10px);
+      }
+
+      h3 {
+        font-size: 1em;
+        margin: 0px;
+      }
+
+      p {
+        font-size: 1em;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.2em;
+        padding: 10px;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 10px;
+        transition: background 0.3s;
+      }
+      div.text-container p.paragraph {
+        text-indent: 40px;
+        text-shadow:
+          0 0 1px rgba(255, 255, 255, 0.6),
+          0 0 6px rgba(255, 255, 255, 0.5),
+          0 0 11px rgba(255, 255, 255, 0.3);
+        color: #d1d1d1;
+
+      }
+      .cards{
+        display: flex;
+        justify-content: center;
+      }
+      .slideshow-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 50px auto;
+        width: 80%;
+        max-width: 1100px;
+        gap: 10%;
+      }
+
+      .text-container {
+        flex: 1;
+        padding: 20px;
+        text-align: left;
+      }
+
+      .text-container h2 {
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+
+      .text-container p {
+        font-size: 1.2em;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      }
+
+      .slideshow {
+        flex: 1;
+        position: relative;
+        max-width: 400px;
+        height: 300px;
+      }
+
+      .slide {
+        display: none;
+        width: 100%;
+        height: 150%;
+        border-radius: 10px;
+        transform: translateY(-15%);
+      }
+
+      .active {
+        display: block;
+      }
+
+      .footer {
+        margin-top: 50px;
+      }
+      .card {
+        width: 18%;
+        height: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.2s ease-out;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform-style: preserve-3d;
+        font-family: "Poppins";
+        box-shadow:
+          0 0 6px rgba(255, 255, 255, 0.09),
+          0 0 11px rgba(255, 255, 255, 0.07);
+        position: relative;
+        transition: box-shadow 0.8s;
+        max-width: 200px;
+        min-width: 100px;
+        max-height: 200px;
+        min-height: 100px;
+      }
+      .card:hover {
+          box-shadow:
+            0 0 20px rgba(255, 255, 255, 0.6),
+            0 0 40px rgba(255, 255, 255, 0.4);
+          transform-origin: center;
+        }
+        .scroll-down {
+        position: absolute;
+        bottom: 30px;
+        left: auto;
+        transform: translateX(-50%);
+        font-size: 1em;
+        color: #fff;
+        opacity: 0.8;
+        animation: fadeBounce 2s infinite;
+
+      }
+      .scroll-down-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+  }
+      h1,
+      h2,
+      h3,
+      p {
+        text-shadow:
+          0 0 1px rgba(255, 255, 255, 0.6),
+          0 0 6px rgba(255, 255, 255, 0.5),
+          0 0 11px rgba(255, 255, 255, 0.3);
+        color: #d1d1d1;
+      }
+      @keyframes fadeBounce {
+
+        0%,
+        100% {
+        transform: translateY(0);
+        opacity: 0.8;
+        }
+
+        50% {
+        transform: translateY(10px);
+        opacity: 1;
+        }
+      }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".card").forEach(card => {
+        // 3D hover effect
+        card.addEventListener("mousemove", (event) => {
+          let cardRect = card.getBoundingClientRect();
+          let centerX = cardRect.left + cardRect.width / 2;
+          let centerY = cardRect.top + cardRect.height / 2;
+          let x = ((event.clientX - centerX) / cardRect.width) * 5;
+          let y = ((event.clientY - centerY) / cardRect.height) * 5;
+          card.style.transform = `perspective(600px) rotateY(${x}deg) rotateX(${-y}deg)`;
+        });
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "perspective(600px) rotateY(0deg) rotateX(0deg)";
+        });
+        // Click event to navigate to respective pages
+        card.addEventListener("click", () => {
+          let title = card.querySelector("h3").innerText;
+          let pageLinks = {
+            "Emergence": "emergence.html",
+            "Brute Force": "bruteforce.html",
+            "Golden Hour": "goldenHour.html",
+            "Dreams": "dreams.html",
+            "Special Thanks": "credits.html",
+            "About ARC": "arc.html"
+            // Add more mappings as needed
+          };
+          if (pageLinks[title]) {
+            window.location.href = pageLinks[title];
+          }
+        });
+      });
+      // Smooth scrolling when clicking on scroll-down arrow
+      document.querySelector(".scroll-down").addEventListener("click", () => {
+        window.scrollTo({
+          top: window.innerHeight,
+          behavior: "smooth"
+        });
+      });
+    });
+  </script>
 <body>
-    <div class="hero">
-        <h1>Dreams</h1>
-        <h2>Reaching for the Stars</h2>
-        <p>In this section, we explore the aspirations that drive us to achieve greatness. Dreams are the foundation of our ambitions, guiding us toward our goals and inspiring us to reach new heights.</p>
-        <p>Join us as we delve into the stories of those who dared to dream and made their visions a reality.</p>
-        <a href="home.html" class="back-button">Back to Home</a>
-    </div>
+    <header class="hero">
+        <h1>Golden Hour</h1>
+        <h3>Unveiling Potential</h3>
+    </header>
+    <div class="scroll-down-container"><div class="scroll-down">↓ Scroll Down ↓</div></div>
+    <main class="sidekick">
+        <section class="slideshow-container">
+            <div class="text-container">
+                <h2>Overview</h2>
+                <p class="paragraph"></p>
+                <p class="paragraph">The more I think about it, the more I wish that I tried harder. I wished I enjoyed it a little more back then. On the bright side, I met the teacher that stayed with me for the next 7 years, almost 8. His name was Mr. John, or John Amar.</p>
+            </div>
+            <div class="slideshow">
+                <img class="slide active" src="YoungLiem.png" alt="Slide 1">
+                <img class="slide" src="JohnAmar.png" alt="Slide 2">
+            </div>
+        </section>
+        <div class="cards"><a href="home.html" class="card">Home</a></div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; March 6, 2025 Liem R. Vora. All rights reserved.</p>
+    <script>
+        let slides = document.querySelectorAll('.slide');
+        let index = 0;
+
+        function showSlide() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
+        }
+
+        setInterval(showSlide, 10000); // Change slide every 10 seconds
+    </script>
+
+    </footer>
 </body>
 </html>
