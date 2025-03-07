@@ -87,7 +87,8 @@
         flex-wrap: wrap;
         margin: 50px auto;
         width: 80%;
-        max-width: 1000px;
+        max-width: 1100px;
+        gap: 10%;
       }
 
       .text-container {
@@ -116,8 +117,9 @@
       .slide {
         display: none;
         width: 100%;
-        height: 100%;
+        height: 150%;
         border-radius: 10px;
+        transform: translateY(-15%);
       }
 
       .active {
@@ -253,12 +255,12 @@
         <section class="slideshow-container">
             <div class="text-container">
                 <h2>Overview</h2>
-                <p class="paragraph">The beginning of a new activity is always exciting. It wasn't for me when I first touched the piano. It made me think of exhasting hours of practice, lessons and scoldings. I didn't nearly understand much about life as I do now.</p>
+                <p class="paragraph">The beginning of a new activity is always exciting. It was for me when I first touched the piano, but that quickly changed as I took a few lessons from "Vivaldi Academy". It made me think of exhasting hours of practice, lessons and scoldings. I didn't nearly understand much about life as I do now.</p>
+                <p class="paragraph">The more I think about it, the more I wish that I tried harder. I wished I enjoyed it a little more back then. On the bright side, I met the teacher that stayed with me for the next 7 years, almost 8. His name was Mr. John, or John Amar.</p>
             </div>
             <div class="slideshow">
-                <img class="slide active" src="https://source.unsplash.com/400x300/?nature" alt="Slide 1">
-                <img class="slide" src="https://source.unsplash.com/400x300/?future" alt="Slide 2">
-                <img class="slide" src="https://source.unsplash.com/400x300/?innovation" alt="Slide 3">
+                <img class="slide active" src="YoungLiem.png" alt="Slide 1">
+                <img class="slide" src="JohnAmar.png" alt="Slide 2">
             </div>
         </section>
         <div class="cards"><a href="home.html" class="card">Home</a></div>
@@ -276,7 +278,7 @@
             slides[index].classList.add('active');
         }
 
-        setInterval(showSlide, 4000); // Change slide every 3 seconds
+        setInterval(showSlide, 10000); // Change slide every 10 seconds
     </script>
 
     </footer>

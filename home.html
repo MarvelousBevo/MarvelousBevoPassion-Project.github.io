@@ -37,14 +37,44 @@
       }
 
       /* Fullscreen Title Section */
-      .hero {
+      .hero{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         height: 100vh;
       }
-
+      .intro-container {
+        transform: translateY(10%);
+      }
+      .intro {
+        font-size: 2em;
+        margin: 10px;
+        text-shadow: 0 0 11px rgba(255, 255, 255, 0.3);
+      }
+      .super-intro {
+        font-size: 15em;
+        margin-top: 20px;
+        color: #d1d1d1;
+        position: relative;
+        transition: text-shadow 0.2s ease-out;
+      }
+      .super-intro::before {
+        content: 'MUSIC';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        color: #fff;
+        filter: blur(10px);
+        opacity: 0.7;
+        z-index: -1;
+        transition: transform 0.2s ease-out;
+      }
+      .space {
+        height: 5vh;
+      }
       h1 {
         font-size: 2em;
         margin: 10px;
@@ -92,7 +122,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 100vh;
+        height: 70vh;
       }
 
       .cards {
@@ -164,7 +194,6 @@
         animation: fadeBounce 2s infinite;
       }
       .clock {
-        font-size: 10em;
         padding: 10px;
         color: #fff;
         text-shadow:           
@@ -175,9 +204,18 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 100vh;
+        height: 110vh;
       }
-
+      .clock .date {
+    font-size: 4em;
+}
+.clock .time {
+    font-size: 10em;
+}
+.clock p {
+    font-size: 2em;
+    margin: 3%;
+}
       @keyframes fadeBounce {
 
         0%,
@@ -316,6 +354,18 @@
           });
         });
       });
+      document.addEventListener("DOMContentLoaded", () => {
+    const superIntro = document.querySelector(".super-intro");
+    document.addEventListener("mousemove", (event) => {
+        const x = (event.clientX / window.innerWidth - 0.5) * 10;
+        const y = (event.clientY / window.innerHeight - 0.5) * 10;
+        superIntro.style.textShadow = `
+            ${x}px ${y}px 40px rgba(255, 255, 255, 0.025),
+            ${x}px ${y}px 60px rgba(255, 255, 255, 0.025)
+        `;
+        superIntro.querySelector("::before").style.transform = `translate(${x}px, ${y}px)`;
+    });
+});
     </script>
   </head>
   <body>
@@ -325,18 +375,32 @@
       <h2>to an Arc-Inspired Presentation</h2>
       <div class="scroll-down">↓ Scroll Down ↓</div>
     </div>
-    <div class="clock" id="clock">00:00:00</div>
-      <script>
-        function updateClock() {
-            const now = new Date();
-            let hours = now.getHours().toString().padStart(2, '0');
-            let minutes = now.getMinutes().toString().padStart(2, '0');
-            let seconds = now.getSeconds().toString().padStart(2, '0');
-            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
-        }
-        setInterval(updateClock, 1000);
-        updateClock(); // Initial call to prevent delay
+    <!-- Clock Section -->
+    <div class="clock" id="clock"></div>
+
+    <script>
+      function updateClock() {
+          const now = new Date();
+          const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+          const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+          
+          let dayOfWeek = days[now.getDay()];
+          let day = now.getDate().toString().padStart(2, '0');
+          let month = months[now.getMonth()];
+          let year = now.getFullYear();
+          let hours = now.getHours().toString().padStart(2, '0');
+          let minutes = now.getMinutes().toString().padStart(2, '0');
+          let seconds = now.getSeconds().toString().padStart(2, '0');
+          
+          document.getElementById('clock').innerHTML = `<p>It is currently:</p><span class="date">${dayOfWeek}, ${day} ${month} ${year}</span><br><span class="time">${hours}:${minutes}:${seconds}</span>`;
+      }
+      setInterval(updateClock, 1000);
+      updateClock(); // Initial call to prevent delay
       </script>
+    <div class="intro-container"></div>
+    <p class="intro">My Passion is</p>
+    <h1 class="super-intro">MUSIC</h1>
+
     <!-- Cards Section -->
     <div class="cards-container">
       <div class="cards">
@@ -406,5 +470,6 @@
         </div>
       </div>
     </div>
+    <div class="space"></div>
   </body>
 </html>
