@@ -1,28 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>About ARC</title>
-</head>
-<body>
-    <header>
-        <h1>About ARC</h1>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script src="script.js" defer></script>
+    <title>ARC - Arc-Inspired Presentation</title>
+    <style>
+      body {
+        background: 
+            radial-gradient(circle at 20% 30%, #5A7190 15%, transparent 60%),
+            radial-gradient(circle at 80% 20%, #253C54 20%, transparent 65%),
+            radial-gradient(circle at 40% 70%, #A26B94 25%, transparent 60%),
+            radial-gradient(circle at 85% 85%, #789B9D 30%, transparent 70%),
+            radial-gradient(circle at 10% 90%, #8A6B98 20%, transparent 70%),
+            radial-gradient(circle at 90% 10%, #699A9C 15%, transparent 65%),
+            radial-gradient(circle at 30% 50%, #3A4255 25%, transparent 60%),
+            radial-gradient(circle at 60% 80%, #3A3055 30%, transparent 70%),
+            radial-gradient(circle at 25% 75%, #859AB5 20%, transparent 70%),
+            radial-gradient(circle at 70% 25%, #306A76 15%, transparent 65%);
+        background-size: 250% 100%;
+        animation: gradient-animation 20s ease infinite;
+        color: white;
+        text-align: center;
+        margin: 0;
+        scroll-behavior: smooth;
+        font-family: "poppins";
+      }
+
+      .hero,
+      .sidekick {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: auto;
+        display: table;
+      }
+
+      li {
+        display: table-row;
+        padding: 10px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2em;
+        margin: 10px;
+        text-shadow: 0 0 11px rgba(255, 255, 255, 0.3);
+      }
+
+      h2 {
+        font-size: 1.5em;
+        margin: 10px;
+        text-shadow: 0 0 11px rgba(255, 255, 255, 0.3);
+        transform: translateX(-10px);
+      }
+
+      h3 {
+        font-size: 1em;
+        margin: 0px;
+        text-shadow: 0 0 11px rgba(255, 255, 255, 0.3);
+      }
+
+      p {
+        font-size: 1em;
+        text-shadow:
+          0 0 10px rgba(255, 255, 255, 0.1);
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.2em;
+        padding: 10px;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 10px;
+        transition: background 0.3s;
+      }
+
+      .cards {
+        display: flex;
+        justify-content: center;
+      }
+
+      .slideshow-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 50px auto;
+        width: 80%;
+        max-width: 1000px;
+      }
+
+      .text-container {
+        flex: 1;
+        padding: 20px;
+        text-align: left;
+      }
+
+      .text-container h2 {
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+
+      .text-container p {
+        font-size: 1.2em;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      }
+
+      .slideshow {
+        flex: 1;
+        position: relative;
+        max-width: 400px;
+        height: 300px;
+      }
+
+      .slide {
+        display: none;
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Ensures the image maintains its aspect ratio */
+      }
+
+      .active {
+        display: block;
+      }
+
+      .footer {
+        margin-top: 50px;
+      }
+
+      .card {
+        width: 18%;
+        height: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.2s ease-out;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform-style: preserve-3d;
+        font-family: "Poppins";
+        box-shadow:
+          0 0 6px rgba(255, 255, 255, 0.09),
+          0 0 11px rgba(255, 255, 255, 0.07);
+        position: relative;
+        transition: box-shadow 0.8s;
+        max-width: 200px;
+        min-width: 100px;
+        max-height: 200px;
+        min-height: 100px;
+      }
+
+      .card:hover {
+        box-shadow:
+          0 0 20px rgba(255, 255, 255, 0.6),
+          0 0 40px rgba(255, 255, 255, 0.4);
+        transform-origin: center;
+      }
+
+      .scroll-down {
+        position: absolute;
+        bottom: 30px;
+        left: auto;
+        transform: translateX(-50%);
+        font-size: 1em;
+        color: #fff;
+        opacity: 0.8;
+        animation: fadeBounce 2s infinite;
+      }
+
+      .scroll-down-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 30px;
+        width: 100%;
+      }
+
+      @keyframes fadeBounce {
+
+        0%,
+        100% {
+          transform: translateY(0);
+          opacity: 0.8;
+        }
+
+        50% {
+          transform: translateY(10px);
+          opacity: 1;
+        }
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".card").forEach(card => {
+          // 3D hover effect
+          card.addEventListener("mousemove", (event) => {
+            let cardRect = card.getBoundingClientRect();
+            let centerX = cardRect.left + cardRect.width / 2;
+            let centerY = cardRect.top + cardRect.height / 2;
+            let x = ((event.clientX - centerX) / cardRect.width) * 5;
+            let y = ((event.clientY - centerY) / cardRect.height) * 5;
+            card.style.transform = `perspective(600px) rotateY(${x}deg) rotateX(${-y}deg)`;
+          });
+          card.addEventListener("mouseleave", () => {
+            card.style.transform = "perspective(600px) rotateY(0deg) rotateX(0deg)";
+          });
+          // Click event to navigate to respective pages
+          card.addEventListener("click", () => {
+            let title = card.querySelector("h3").innerText;
+            let pageLinks = {
+              "Emergence": "emergence.html",
+              "Brute Force": "bruteforce.html",
+              "Golden Hour": "goldenHour.html",
+              "Dreams": "dreams.html",
+              "Special Thanks": "credits.html",
+              "About ARC": "arc.html"
+              // Add more mappings as needed
+            };
+            if (pageLinks[title]) {
+              window.location.href = pageLinks[title];
+            }
+          });
+        });
+        // Smooth scrolling when clicking on scroll-down arrow
+        document.querySelector(".scroll-down").addEventListener("click", () => {
+          window.scrollTo({
+            top: window.innerHeight,
+            behavior: "smooth"
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header class="hero">
+      <h1>ARC Browser</h1>
+      <h3>Asthetics and Interactivity</h3>
     </header>
-    <main>
-        <section>
-            <h2>Crafting The Perfect UI</h2>
-            <p>ARC is dedicated to creating user interfaces that are not only visually appealing but also highly functional. Our approach combines aesthetics with usability, ensuring that every design decision enhances the user experience.</p>
-            <p>We believe that a well-crafted UI can transform the way users interact with technology, making it more intuitive and enjoyable. Our team of designers and developers work collaboratively to bring innovative ideas to life, focusing on the needs and preferences of our users.</p>
-        </section>
-        <section>
-            <h2>Our Philosophy</h2>
-            <p>At ARC, we prioritize user-centered design principles. This means understanding our audience, conducting thorough research, and iterating on designs based on user feedback. Our goal is to create interfaces that are not only beautiful but also accessible and easy to navigate.</p>
-        </section>
+    <div class="scroll-down-container">
+      <div class="scroll-down">↓ Scroll Down ↓</div>
+    </div>
+    <main class="sidekick">
+      <section class="slideshow-container">
+        <div class="text-container">
+          <h2>Overview</h2>
+          <p> (this is not a sponsored ad, but it is an ad) ARC is an amazing browsing tool that allows you to summarize the web with sources and finds more relevant information. It also is what inspired me to create this website. It is a combination of asthetics and useability that fuels productivity of its user.</p>
+        </div>
+        <div class="slideshow">
+          <img class="slide active" src="ARCblankPage.png" alt="Slide 1">
+          <img class="slide" src="ARClogo.png" alt="Slide 2">
+          <img class="slide" src="ARCsearchBar.png" alt="Slide 3">
+        </div>
+      </section>
+      <div class="cards">
+        <a href="home.html" class="card">Home</a>
+      </div>
     </main>
-    <footer>
-        <p>&copy; 2023 ARC. All rights reserved.</p>
+    <footer class="footer">
+      <p>&copy; March 20, 2025 Liem R. Vora. All rights reserved.</p>
+      <script>
+        let slides = document.querySelectorAll('.slide');
+        let index = 0;
+
+        function showSlide() {
+          slides.forEach(slide => slide.classList.remove('active'));
+          index = (index + 1) % slides.length;
+          slides[index].classList.add('active');
+        }
+        setInterval(showSlide, 4000); // Change slide every 3 seconds
+      </script>
     </footer>
-</body>
+  </body>
 </html>

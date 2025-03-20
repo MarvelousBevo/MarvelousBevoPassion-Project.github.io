@@ -127,10 +127,11 @@ body {
 
       .slide {
         display: none;
-        width: 100%;
-        height: 150%;
-        border-radius: 10px;
-        transform: translateY(-15%);
+        width: 100%; /* Ensure the image takes up the full width of its container */
+        height: auto; /* Maintain the aspect ratio */
+        border-radius: 10px; /* Optional: Add rounded corners */
+        object-fit: cover; /* Ensure the image fills the container without distortion */
+        transform: none; /* Remove unnecessary transformations */
       }
 
       .active {
@@ -273,7 +274,7 @@ body {
                       and Mr. Tommy, another piano teacher who taught me jazz piano for 3 years.</p>
             </div>
             <div class="slideshow">
-                <img class="slide active" src="YoungLiem.png" alt="Slide 1">
+                <img class="slide active" src="quynhQuartet.jpeg" alt="Slide 1">
                 <img class="slide" src="JohnAmar.png" alt="Slide 2">
             </div>
         </section>

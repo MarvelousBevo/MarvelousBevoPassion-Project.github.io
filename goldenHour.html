@@ -10,14 +10,23 @@
       body {
         background: hsla(32, 100%, 69%, 1);
         background: linear-gradient(150deg, hsla(32, 100%, 69%, 1) 0%, hsla(341, 43%, 49%, 1) 33%, hsla(277, 100%, 29%, 1) 67%);
-        filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FFB561", endColorstr="#B14769", GradientType=1 );
         background-size: 150% 150%;
         animation: gradient-animation 20s ease infinite;
         color: white;
         text-align: center;
         margin: 0;
         scroll-behavior: smooth;
-        font-family: "poppins";
+        font-family: "Poppins";
+      }
+      html, body {
+        height: 100%; /* Ensure the body and html take up the full height */
+        overflow-y: scroll; /* Enable vertical scrolling */
+        scroll-behavior: smooth; /* Smooth scrolling behavior */
+      }
+      header.hero {
+        padding: 50px; /* Increase padding for the title */
+        margin-bottom: 20vh; /* Drastically increase spacing between the title and the first section */
+        text-align: center;
       }
       .hero, .sidekick {
         padding: 20px;
@@ -80,21 +89,25 @@
       .cards{
         display: flex;
         justify-content: center;
+        margin-top: 5vh; /* Small gap between the last section and the button */
+        margin-bottom: 0; /* Remove extra space below the button */
+        padding: 0; /* Ensure no extra padding is added */
       }
       .slideshow-container {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-        margin: 50px auto;
         width: 80%;
         max-width: 1100px;
         gap: 10%;
+        margin-top: 10vh; /* Reduce spacing between sections */
+        min-height: 120vh; /* Make each section taller for a more dramatic effect */
       }
 
       .text-container {
         flex: 1;
-        padding: 20px;
+        padding: 40px; /* Add more padding inside the text container */
         text-align: left;
       }
 
@@ -117,10 +130,10 @@
 
       .slide {
         display: none;
-        width: 100%;
-        height: 150%;
+        width: 100%; /* Ensure the image takes up the full width of its container */
+        height: auto; /* Maintain the aspect ratio */
         border-radius: 10px;
-        transform: translateY(-15%);
+        object-fit: cover; /* Ensure the image fills the container without distortion */
       }
 
       .active {
@@ -161,7 +174,7 @@
           transform-origin: center;
         }
         .scroll-down {
-        position: absolute;
+        position: relative;
         bottom: 30px;
         left: auto;
         transform: translateX(-50%);
@@ -175,9 +188,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    bottom: 30px;
+    position: relative; /* Keep the scroll-down button fixed at the bottom */
+    bottom: 50px; /* Move the scroll-down button further up */
     width: 100%;
+    transform: translateY(-1500%);
   }
       h1,
       h2,
@@ -238,9 +252,13 @@
           });
           // Smooth scrolling when clicking on scroll-down arrow
           document.querySelector(".scroll-down").addEventListener("click", () => {
+            const scrollDistance = window.innerHeight * 3; // Calculate the scroll distance (3x viewport height)
+            const targetPosition = window.scrollY + scrollDistance; // Add the scroll distance to the current scroll position
+
+            // Scroll to the target position smoothly
             window.scrollTo({
-              top: window.innerHeight,
-              behavior: "smooth"
+                top: targetPosition,
+                behavior: "smooth"
             });
           });
         });
@@ -253,7 +271,7 @@
     </header>
     <div class="scroll-down-container"><div class="scroll-down">↓ Scroll Down ↓</div></div>
     <main class="sidekick">
-        <section class="slideshow-container">
+        <section class="slideshow-container" style="transform: translateY(50%)">
             <div class="text-container">
                 <h2>Overview</h2>
                 <p class="paragraph">On my 12th birthday, the year of the tiger, I recived a very special gift from my uncle & dad. It is the "Akai MPK mini 3" midi controller. Basically a mini electric piano. It was my favorite and I used it every day for the next 3 months. 
@@ -264,24 +282,21 @@
                 <img class="slide" src="JohnAmar.png" alt="Slide 2">
             </div>
         </section>
-        <div class="cards"><a href="home.html" class="card">Home</a></div>
+
+        <section class="slideshow-container" style="margin-top: 10vh;">
+            <div class="text-container">
+                <h2>Inspiration</h2>
+                <p class="paragraph">The song that inspired me to persue music was Rachmaninoff's Piano Concerto no.2 movement 2. Other notable songs include Sibelius: Violin Concerto in D minor, Op. 47: I. Allegro moderato and Pavane pour une infante deftune, M. 19.</p>
+            </div>
+            <div class="slideshow">
+                <img class="slide active" src="YujaWangRachmaninoffPianoConcertono.2.jpg" alt="Slide 1">
+            </div>
+        </section>
+
+        <!-- Move the Home button closer -->
+        <div class="cards">
+            <a href="home.html" class="card">Home</a>
+        </div>
     </main>
-
-    <footer class="footer">
-        <p>&copy; March 6, 2025 Liem R. Vora. All rights reserved.</p>
-    <script>
-        let slides = document.querySelectorAll('.slide');
-        let index = 0;
-
-        function showSlide() {
-            slides.forEach(slide => slide.classList.remove('active'));
-            index = (index + 1) % slides.length;
-            slides[index].classList.add('active');
-        }
-
-        setInterval(showSlide, 10000); // Change slide every 10 seconds
-    </script>
-
-    </footer>
 </body>
 </html>
